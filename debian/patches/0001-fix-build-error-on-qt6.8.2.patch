@@ -1,0 +1,300 @@
+From fc2fbd7f37527da15b94f0cd61fee32176d34fc7 Mon Sep 17 00:00:00 2001
+From: lhdjply <lhdjply@126.com>
+Date: Wed, 12 Nov 2025 15:53:35 +0800
+Subject: [PATCH] fix build error on qt6.8.2
+
+Signed-off-by: lhdjply <lhdjply@126.com>
+---
+ .../{6.8.0 => 6.8.2}/gl_integrations/qxcbglintegration.h          | 0
+ .../{6.8.0 => 6.8.2}/gl_integrations/qxcbglintegrationfactory.h   | 0
+ .../{6.8.0 => 6.8.2}/gl_integrations/qxcbglintegrationplugin.h    | 0
+ .../{6.8.0 => 6.8.2}/gl_integrations/qxcbnativeinterfacehandler.h | 0
+ .../{6.8.0 => 6.8.2}/gl_integrations/xcb_egl/qxcbeglcontext.h     | 0
+ .../{6.8.0 => 6.8.2}/gl_integrations/xcb_egl/qxcbeglinclude.h     | 0
+ .../{6.8.0 => 6.8.2}/gl_integrations/xcb_egl/qxcbeglintegration.h | 0
+ .../gl_integrations/xcb_egl/qxcbeglnativeinterfacehandler.h       | 0
+ .../{6.8.0 => 6.8.2}/gl_integrations/xcb_egl/qxcbeglwindow.h      | 0
+ .../{6.8.0 => 6.8.2}/gl_integrations/xcb_glx/qglxintegration.h    | 0
+ .../{6.8.0 => 6.8.2}/gl_integrations/xcb_glx/qxcbglxintegration.h | 0
+ .../gl_integrations/xcb_glx/qxcbglxnativeinterfacehandler.h       | 0
+ .../{6.8.0 => 6.8.2}/gl_integrations/xcb_glx/qxcbglxwindow.h      | 0
+ .../{6.8.0 => 6.8.2}/nativepainting/qbackingstore_x11_p.h         | 0
+ .../{6.8.0 => 6.8.2}/nativepainting/qcolormap_x11_p.h             | 0
+ .../{6.8.0 => 6.8.2}/nativepainting/qpaintengine_x11_p.h          | 0
+ .../{6.8.0 => 6.8.2}/nativepainting/qpixmap_x11_p.h               | 0
+ .../{6.8.0 => 6.8.2}/nativepainting/qpolygonclipper_p.h           | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/nativepainting/qt_x11_p.h   | 0
+ .../{6.8.0 => 6.8.2}/nativepainting/qtessellator_p.h              | 0
+ .../{6.8.0 => 6.8.2}/nativepainting/qxcbnativepainting.h          | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qt_xlib_wrapper.h           | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbatom.h                  | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbbackingstore.h          | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbclipboard.h             | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbconnection.h            | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbconnection_basic.h      | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbcursor.h                | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbcursorfont.h            | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbdrag.h                  | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbeventdispatcher.h       | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbeventqueue.h            | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbexport.h                | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbimage.h                 | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbintegration.h           | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbkeyboard.h              | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbmime.h                  | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbnativeinterface.h       | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbobject.h                | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbscreen.h                | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbscrollingdevice_p.h     | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbsessionmanager.h        | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbsystemtraytracker.h     | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbvulkaninstance.h        | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbvulkanwindow.h          | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbwindow.h                | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbwmsupport.h             | 0
+ xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbxsettings.h             | 0
+ 48 files changed, 0 insertions(+), 0 deletions(-)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/qxcbglintegration.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/qxcbglintegrationfactory.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/qxcbglintegrationplugin.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/qxcbnativeinterfacehandler.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/xcb_egl/qxcbeglcontext.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/xcb_egl/qxcbeglinclude.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/xcb_egl/qxcbeglintegration.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/xcb_egl/qxcbeglnativeinterfacehandler.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/xcb_egl/qxcbeglwindow.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/xcb_glx/qglxintegration.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/xcb_glx/qxcbglxintegration.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/xcb_glx/qxcbglxnativeinterfacehandler.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/gl_integrations/xcb_glx/qxcbglxwindow.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/nativepainting/qbackingstore_x11_p.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/nativepainting/qcolormap_x11_p.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/nativepainting/qpaintengine_x11_p.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/nativepainting/qpixmap_x11_p.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/nativepainting/qpolygonclipper_p.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/nativepainting/qt_x11_p.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/nativepainting/qtessellator_p.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/nativepainting/qxcbnativepainting.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qt_xlib_wrapper.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbatom.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbbackingstore.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbclipboard.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbconnection.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbconnection_basic.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbcursor.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbcursorfont.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbdrag.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbeventdispatcher.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbeventqueue.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbexport.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbimage.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbintegration.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbkeyboard.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbmime.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbnativeinterface.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbobject.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbscreen.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbscrollingdevice_p.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbsessionmanager.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbsystemtraytracker.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbvulkaninstance.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbvulkanwindow.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbwindow.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbwmsupport.h (100%)
+ rename xcb/libqt6xcbqpa-dev/{6.8.0 => 6.8.2}/qxcbxsettings.h (100%)
+
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/qxcbglintegration.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/qxcbglintegration.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/qxcbglintegration.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/qxcbglintegration.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/qxcbglintegrationfactory.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/qxcbglintegrationfactory.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/qxcbglintegrationfactory.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/qxcbglintegrationfactory.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/qxcbglintegrationplugin.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/qxcbglintegrationplugin.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/qxcbglintegrationplugin.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/qxcbglintegrationplugin.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/qxcbnativeinterfacehandler.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/qxcbnativeinterfacehandler.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/qxcbnativeinterfacehandler.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/qxcbnativeinterfacehandler.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_egl/qxcbeglcontext.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_egl/qxcbeglcontext.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_egl/qxcbeglcontext.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_egl/qxcbeglcontext.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_egl/qxcbeglinclude.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_egl/qxcbeglinclude.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_egl/qxcbeglinclude.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_egl/qxcbeglinclude.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_egl/qxcbeglintegration.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_egl/qxcbeglintegration.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_egl/qxcbeglintegration.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_egl/qxcbeglintegration.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_egl/qxcbeglnativeinterfacehandler.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_egl/qxcbeglnativeinterfacehandler.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_egl/qxcbeglnativeinterfacehandler.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_egl/qxcbeglnativeinterfacehandler.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_egl/qxcbeglwindow.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_egl/qxcbeglwindow.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_egl/qxcbeglwindow.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_egl/qxcbeglwindow.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_glx/qglxintegration.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_glx/qglxintegration.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_glx/qglxintegration.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_glx/qglxintegration.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_glx/qxcbglxintegration.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_glx/qxcbglxintegration.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_glx/qxcbglxintegration.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_glx/qxcbglxintegration.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_glx/qxcbglxnativeinterfacehandler.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_glx/qxcbglxnativeinterfacehandler.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_glx/qxcbglxnativeinterfacehandler.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_glx/qxcbglxnativeinterfacehandler.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_glx/qxcbglxwindow.h b/xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_glx/qxcbglxwindow.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/gl_integrations/xcb_glx/qxcbglxwindow.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/gl_integrations/xcb_glx/qxcbglxwindow.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qbackingstore_x11_p.h b/xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qbackingstore_x11_p.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qbackingstore_x11_p.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qbackingstore_x11_p.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qcolormap_x11_p.h b/xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qcolormap_x11_p.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qcolormap_x11_p.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qcolormap_x11_p.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qpaintengine_x11_p.h b/xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qpaintengine_x11_p.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qpaintengine_x11_p.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qpaintengine_x11_p.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qpixmap_x11_p.h b/xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qpixmap_x11_p.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qpixmap_x11_p.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qpixmap_x11_p.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qpolygonclipper_p.h b/xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qpolygonclipper_p.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qpolygonclipper_p.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qpolygonclipper_p.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qt_x11_p.h b/xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qt_x11_p.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qt_x11_p.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qt_x11_p.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qtessellator_p.h b/xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qtessellator_p.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qtessellator_p.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qtessellator_p.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qxcbnativepainting.h b/xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qxcbnativepainting.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/nativepainting/qxcbnativepainting.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/nativepainting/qxcbnativepainting.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qt_xlib_wrapper.h b/xcb/libqt6xcbqpa-dev/6.8.2/qt_xlib_wrapper.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qt_xlib_wrapper.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qt_xlib_wrapper.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbatom.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbatom.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbatom.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbatom.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbbackingstore.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbbackingstore.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbbackingstore.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbbackingstore.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbclipboard.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbclipboard.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbclipboard.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbclipboard.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbconnection.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbconnection.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbconnection.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbconnection.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbconnection_basic.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbconnection_basic.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbconnection_basic.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbconnection_basic.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbcursor.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbcursor.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbcursor.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbcursor.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbcursorfont.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbcursorfont.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbcursorfont.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbcursorfont.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbdrag.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbdrag.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbdrag.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbdrag.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbeventdispatcher.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbeventdispatcher.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbeventdispatcher.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbeventdispatcher.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbeventqueue.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbeventqueue.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbeventqueue.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbeventqueue.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbexport.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbexport.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbexport.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbexport.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbimage.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbimage.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbimage.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbimage.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbintegration.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbintegration.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbintegration.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbintegration.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbkeyboard.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbkeyboard.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbkeyboard.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbkeyboard.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbmime.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbmime.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbmime.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbmime.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbnativeinterface.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbnativeinterface.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbnativeinterface.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbnativeinterface.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbobject.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbobject.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbobject.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbobject.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbscreen.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbscreen.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbscreen.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbscreen.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbscrollingdevice_p.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbscrollingdevice_p.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbscrollingdevice_p.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbscrollingdevice_p.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbsessionmanager.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbsessionmanager.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbsessionmanager.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbsessionmanager.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbsystemtraytracker.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbsystemtraytracker.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbsystemtraytracker.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbsystemtraytracker.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbvulkaninstance.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbvulkaninstance.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbvulkaninstance.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbvulkaninstance.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbvulkanwindow.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbvulkanwindow.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbvulkanwindow.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbvulkanwindow.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbwindow.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbwindow.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbwindow.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbwindow.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbwmsupport.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbwmsupport.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbwmsupport.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbwmsupport.h
+diff --git a/xcb/libqt6xcbqpa-dev/6.8.0/qxcbxsettings.h b/xcb/libqt6xcbqpa-dev/6.8.2/qxcbxsettings.h
+similarity index 100%
+rename from xcb/libqt6xcbqpa-dev/6.8.0/qxcbxsettings.h
+rename to xcb/libqt6xcbqpa-dev/6.8.2/qxcbxsettings.h
+-- 
+2.50.1
+
